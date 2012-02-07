@@ -27,7 +27,7 @@ Synopsis
         GET gifonc/modules.json
         return all the modules name 
         
-        $ curl http://api.com/gifonc/modules.json
+        $ curl http://api.yoursite.com/gifonc/modules.json
         {
             ["accountsvr","ekeysvr","monitoragent","pay.sdo.com"]
         }
