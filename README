@@ -1,0 +1,19 @@
+this code use build a op config system.
+
+Sometimes a SA want to manage some app config file convenient.
+this tool  divided into two parts: Front-end, Back logic web.
+
+Front-end(./Front-end):
+    Use PHP coding.
+    Support for database configuration, like the be managed server, config file's path, managed server's os platform.
+
+
+Back logic web:
+    Use python coding, tornado web framework.
+    Read the database that managed server's IP and config file's path etc.
+    managed server config file change, new.
+
+
+Author:
+    Liutaihua <defage@gmail.com>
+    Dongyi    <juvenpp@gmail.com>

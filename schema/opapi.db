@@ -1,0 +1,104 @@
+-- MySQL dump 10.13  Distrib 5.5.8, for Linux (x86_64)
+--
+-- Host: 10.129.19.113    Database: opapi
+-- ------------------------------------------------------
+-- Server version	5.5.8
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `configs`
+--
+
+DROP TABLE IF EXISTS `configs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `configs` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `file` varchar(100) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `module` varchar(255) NOT NULL,
+  `ostype` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `module` (`module`,`file`,`path`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `mate_columns`
+--
+
+DROP TABLE IF EXISTS `mate_columns`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mate_columns` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `mate_user_id` varchar(75) COLLATE utf8_unicode_ci NOT NULL,
+  `mate_var_prefix` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `mate_column` varchar(75) COLLATE utf8_unicode_ci NOT NULL,
+  `hidden` varchar(3) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'No',
+  `order_num` mediumint(4) unsigned NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mate_user_id` (`mate_user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `modules`
+--
+
+DROP TABLE IF EXISTS `modules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `modules` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `status` tinyint(4) DEFAULT '1',
+  `description` varchar(500) DEFAULT NULL,
+  `ip1` varchar(16) NOT NULL,
+  `ip2` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `scps`
+--
+
+DROP TABLE IF EXISTS `scps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `scps` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ip1` varchar(16) NOT NULL,
+  `ip2` varchar(16) DEFAULT NULL,
+  `port` int(11) DEFAULT '58422',
+  `ostype` varchar(10) DEFAULT NULL,
+  `pkey` varchar(255) DEFAULT NULL,
+  `user` varchar(50) DEFAULT 'root',
+  PRIMARY KEY (`id`),
+  KEY `ip1` (`ip1`,`ip2`)
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-02-07 16:46:05
