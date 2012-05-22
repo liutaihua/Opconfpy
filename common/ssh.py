@@ -3,7 +3,7 @@ import os, time
 import commands
 
 id_rsa = '/opt/web/gifonc/ssh/webistrano.pkey'
-def sftpFile(host,LocalPath,RemotePath,user = 'root',passwd = 'WD#sd7258',port = 58422):
+def sftpFile(host,LocalPath,RemotePath,user = 'root',passwd = 'XXXXXXXXXXX',port = 58422):
     ssh = paramiko.SSHClient()
     try:
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -19,7 +19,7 @@ def sftpFile(host,LocalPath,RemotePath,user = 'root',passwd = 'WD#sd7258',port =
     except paramiko.SSHException:
         ssh.close()
 
-def sshCommand(host,cmd,user='root',passwd='WD#sd7258',myport=58422):
+def sshCommand(host,cmd,user='root',passwd='XXXXXXXXXX',myport=58422):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     privatekeyfile = os.path.expanduser('%s'%id_rsa)
